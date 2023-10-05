@@ -3,6 +3,7 @@
 ## Getting Started
 
 1. Install dependencies: `composer install`
+2. Setup frontend url in `wp-config.php` as `define('WP_FRONTEND_URL', 'http://localhost:3000');`. Default is `http://localhost:3000`.
 
 ## Development
 ### Adding custom post types

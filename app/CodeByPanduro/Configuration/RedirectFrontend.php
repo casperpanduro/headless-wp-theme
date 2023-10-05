@@ -15,7 +15,12 @@ class RedirectFrontend {
         // because it is a headless theme, we don't want to show the frontend
         if (!is_admin()) {
             // redirect to wp admin url
-            wp_redirect(admin_url());
+            if(SetupFrontendUrl::get()) {
+                wp_redirect(SetupFrontendUrl::get());
+
+            } else {
+                wp_redirect(admin_url());
+            }
             exit();
         }
     }
