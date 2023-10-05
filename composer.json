@@ -1,0 +1,17 @@
+{
+    "name": "casperpanduro/wp-headless-theme",
+    "description": "A custom WordPress theme for developing headless themes",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "CodeByPanduro\\": "app/CodeByPanduro"
+        }
+    },
+    "authors": [
+        {
+            "name": "Casper Panduro",
+            "email": "cp@codebypanduro.dk"
+        }
+    ],
+    "require": {}
+}
