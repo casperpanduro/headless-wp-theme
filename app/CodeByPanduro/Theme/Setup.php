@@ -2,6 +2,7 @@
 namespace CodeByPanduro\Theme;
 
 use CodeByPanduro\Configuration\DisableComments;
+use CodeByPanduro\Configuration\DisablePosts;
 use CodeByPanduro\Configuration\RedirectFrontend;
 
 /**
@@ -10,6 +11,12 @@ use CodeByPanduro\Configuration\RedirectFrontend;
  * @return void
  */
 class Setup {
+
+    public function headlessSetup() {
+        $this->disableComments();
+        $this->redirectFrontend();
+    }
+
     public function disableComments() {
         new DisableComments();
 
@@ -25,6 +32,9 @@ class Setup {
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function helloWorld() {
         echo 'Hello World!';
 
