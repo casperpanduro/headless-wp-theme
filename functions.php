@@ -10,3 +10,16 @@ function setup_theme() {
 }
 
 add_action('after_setup_theme', 'setup_theme');
+
+// register custom post types
+add_action('init', function() {
+    /**
+     * This is an example of how to register a custom post type.
+     */
+    /**
+    post_type()
+        ->add('book')
+        ->register();
+     **/
+});
+
