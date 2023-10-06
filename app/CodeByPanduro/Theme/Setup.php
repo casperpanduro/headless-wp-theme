@@ -2,7 +2,7 @@
 namespace CodeByPanduro\Theme;
 
 use CodeByPanduro\Configuration\DisableComments;
-use CodeByPanduro\Configuration\DisablePosts;
+use CodeByPanduro\Configuration\PreviewFrontend;
 use CodeByPanduro\Configuration\RedirectFrontend;
 
 /**
@@ -28,6 +28,7 @@ class Setup {
      */
     public function redirectFrontend() {
         new RedirectFrontend();
+        new PreviewFrontend();
 
         return $this;
     }
