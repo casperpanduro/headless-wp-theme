@@ -17,7 +17,6 @@ class RedirectFrontend {
             // redirect to wp admin url
             if(SetupFrontendUrl::get()) {
                 wp_redirect(SetupFrontendUrl::get());
-
             } else {
                 wp_redirect(admin_url());
             }
