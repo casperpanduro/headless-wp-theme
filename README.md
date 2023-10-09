@@ -57,4 +57,4 @@ add_action('rest_api_init', function () {
 ```
 
 ## Contributing
-For contributing to this `functions.php`, please ensure to follow the coding standards and guidelines outlined for the project.
+For contributing to this `functions.php`, please ensure to follow the [coding standards](https://github.com/casperpanduro/headless-wp-theme/blob/main/CODING_STANDARDS.md) and guidelines outlined for the project.
