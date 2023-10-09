@@ -9,6 +9,7 @@ require_once __DIR__ . '/app/theme.php';
 add_action('after_setup_theme', function() {
     theme()
         ->headlessSetup()
+        ->removeUserRoles(['subscriber', 'contributor', 'author', 'editor'])
         ->addMenu('main', 'Main Menu');
 });
 

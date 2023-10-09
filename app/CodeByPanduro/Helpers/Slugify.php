@@ -18,4 +18,12 @@ class Slugify {
         // Trim dashes from the beginning and end
         return trim($string, '-');
     }
+
+    public static function makeWithPrefix($string, $prefix) {
+        return $prefix . '-' . self::make($string);
+    }
+
+    public static function withUnderscore($string) {
+        return str_replace('-', '_', self::make($string));
+    }
 }

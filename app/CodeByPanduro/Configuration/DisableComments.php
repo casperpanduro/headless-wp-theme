@@ -13,6 +13,10 @@ class DisableComments {
         add_filter('comments_array', '__return_empty_array', 10, 2);
         add_action('admin_menu', [$this, 'remove_comments_admin_menu']);
         add_action('admin_init', [$this, 'redirect_comments_page']);
+        add_action( 'wp_before_admin_bar_render', [$this, 'remove_comments_from_admin_bar'] );
+
+        // remove comments from post and pages
+        add_action('init', [$this, 'remove_comment_support'], 100);
     }
 
     // Disable comments in admin menu
@@ -28,5 +32,15 @@ class DisableComments {
             wp_redirect(admin_url());
             exit();
         }
+    }
+
+    function remove_comments_from_admin_bar() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
+    }
+
+    function remove_comment_support() {
+        remove_post_type_support('post', 'comments');
+        remove_post_type_support('page', 'comments');
     }
 }
