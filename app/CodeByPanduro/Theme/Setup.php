@@ -2,6 +2,7 @@
 namespace CodeByPanduro\Theme;
 
 use CodeByPanduro\Configuration\DisableComments;
+use CodeByPanduro\Configuration\DisableThemeFileEditor;
 use CodeByPanduro\Configuration\RedirectFrontend;
 use CodeByPanduro\Configuration\NavMenu;
 
@@ -13,14 +14,22 @@ use CodeByPanduro\Configuration\NavMenu;
 class Setup {
 
     public function headlessSetup() {
-        $this->disableComments();
-        $this->redirectFrontend();
+        $this
+            ->disableComments()
+            ->disableThemeFileEditor()
+            ->redirectFrontend();
 
         return $this;
     }
 
     public function disableComments() {
         new DisableComments();
+
+        return $this;
+    }
+
+    public function disableThemeFileEditor() {
+        new DisableThemeFileEditor();
 
         return $this;
     }
