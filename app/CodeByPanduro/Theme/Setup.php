@@ -17,6 +17,7 @@ class Setup {
         $this
             ->disableComments()
             ->disableThemeFileEditor()
+            ->superUser()
             ->redirectFrontend();
 
         return $this;
@@ -30,6 +31,16 @@ class Setup {
 
     public function disableThemeFileEditor() {
         new DisableThemeFileEditor();
+
+        return $this;
+    }
+
+    /**
+     * Applies a super-user above the admin role, that can do everything.
+     * @return $this
+     */
+    public function superUser() {
+        // todo - make this configurable
 
         return $this;
     }
