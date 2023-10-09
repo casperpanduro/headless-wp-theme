@@ -1,5 +1,5 @@
 # Headless WordPress Theme
-Created by Casper Panduro aka [Code by Panduro](https::codebypanduro.dk)
+Created by Casper Panduro aka [Code by Panduro](https://codebypanduro.dk)
 ![Best Headless WP Theme](https://raw.githubusercontent.com/casperpanduro/headless-wp-theme/main/screenshot.png)
 
 ## Getting Started
