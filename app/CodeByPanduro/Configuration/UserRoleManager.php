@@ -1,9 +1,9 @@
 <?php
 namespace CodeByPanduro\Configuration;
 
-class UserRole {
+class UserRoleManager {
 
-    public static function remove($role) {
+    public static function removeRole(string $role) {
         // if role not already exists, bail
         if (!get_role($role)) {
             return;
@@ -12,9 +12,9 @@ class UserRole {
         remove_role($role);
     }
 
-    public static function removeArray($roles) {
+    public static function removeRoles(array $roles = []) {
         foreach ($roles as $role) {
-            self::remove($role);
+            self::removeRole($role);
         }
     }
 }

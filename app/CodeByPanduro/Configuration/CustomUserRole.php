@@ -29,8 +29,6 @@ class CustomUserRole {
 
 
     public function add() {
-        remove_role(Slugify::withUnderscore($this->name));
-
         if (get_role(Slugify::withUnderscore($this->name))) {
             return;
         }

@@ -7,7 +7,7 @@ use CodeByPanduro\Configuration\DisableThemeFileEditor;
 use CodeByPanduro\Configuration\HeadlessAdmin;
 use CodeByPanduro\Configuration\RedirectFrontend;
 use CodeByPanduro\Configuration\NavMenu;
-use CodeByPanduro\Configuration\UserRole;
+use CodeByPanduro\Configuration\UserRoleManager;
 
 /**
  * Setup
@@ -53,7 +53,7 @@ class Setup {
      * @return $this
      */
     public function removeUserRoles($roles = []) {
-        UserRole::removeArray($roles);
+        UserRoleManager::removeRoles($roles);
 
         return $this;
     }
