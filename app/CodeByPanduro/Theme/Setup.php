@@ -1,10 +1,13 @@
 <?php
 namespace CodeByPanduro\Theme;
 
+use CodeByPanduro\Configuration\CustomUserRole;
 use CodeByPanduro\Configuration\DisableComments;
 use CodeByPanduro\Configuration\DisableThemeFileEditor;
+use CodeByPanduro\Configuration\HeadlessAdmin;
 use CodeByPanduro\Configuration\RedirectFrontend;
 use CodeByPanduro\Configuration\NavMenu;
+use CodeByPanduro\Configuration\UserRole;
 
 /**
  * Setup
@@ -17,7 +20,7 @@ class Setup {
         $this
             ->disableComments()
             ->disableThemeFileEditor()
-            ->superUser()
+            ->headlessAdminUser()
             ->redirectFrontend();
 
         return $this;
@@ -39,8 +42,18 @@ class Setup {
      * Applies a super-user above the admin role, that can do everything.
      * @return $this
      */
-    public function superUser() {
-        // todo - make this configurable
+    public function headlessAdminUser() {
+        new HeadlessAdmin();
+
+        return $this;
+    }
+
+    /**
+     * @param array $roles
+     * @return $this
+     */
+    public function removeUserRoles($roles = []) {
+        UserRole::removeArray($roles);
 
         return $this;
     }
