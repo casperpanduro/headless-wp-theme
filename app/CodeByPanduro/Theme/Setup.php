@@ -2,8 +2,8 @@
 namespace CodeByPanduro\Theme;
 
 use CodeByPanduro\Configuration\DisableComments;
-use CodeByPanduro\Configuration\PreviewFrontend;
 use CodeByPanduro\Configuration\RedirectFrontend;
+use CodeByPanduro\Configuration\NavMenu;
 
 /**
  * Setup
@@ -15,6 +15,8 @@ class Setup {
     public function headlessSetup() {
         $this->disableComments();
         $this->redirectFrontend();
+
+        return $this;
     }
 
     public function disableComments() {
@@ -28,7 +30,11 @@ class Setup {
      */
     public function redirectFrontend() {
         new RedirectFrontend();
-        new PreviewFrontend();
+        return $this;
+    }
+
+    public function addMenu($name, $title) {
+        NavMenu::register($name, $title);
 
         return $this;
     }
