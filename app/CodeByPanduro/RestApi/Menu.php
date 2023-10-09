@@ -5,6 +5,9 @@ use CodeByPanduro\Helpers\RelativeLink;
 use WP_REST_Request;
 use WP_REST_Response;
 
+/**
+ * Register custom rest api endpoints
+ */
 class Menu {
     public static function register(): void {
         // get menu by slug

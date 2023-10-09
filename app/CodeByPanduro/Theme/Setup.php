@@ -10,13 +10,17 @@ use CodeByPanduro\Configuration\NavMenu;
 use CodeByPanduro\Configuration\UserRoleManager;
 
 /**
- * Setup
- *
+ * Setup theme
+ * This class is used to configure the theme and add custom functionality
  * @return void
  */
 class Setup {
 
-    public function headlessSetup() {
+    /**
+     * Boot the headless theme setup
+     * @return Setup
+     */
+    public function headlessSetup(): Setup {
         $this
             ->disableComments()
             ->disableThemeFileEditor()
@@ -26,57 +30,64 @@ class Setup {
         return $this;
     }
 
-    public function disableComments() {
+    /**
+     * Disable comments completely
+     * @return Setup
+     */
+    public function disableComments(): Setup {
         new DisableComments();
 
         return $this;
     }
 
-    public function disableThemeFileEditor() {
+    /**
+     * Disable the theme file editor
+     * @return Setup
+     */
+    public function disableThemeFileEditor(): Setup {
         new DisableThemeFileEditor();
 
         return $this;
     }
 
     /**
-     * Applies a super-user above the admin role, that can do everything.
+     * Applies a headless admin user
      * @return $this
      */
-    public function headlessAdminUser() {
+    public function headlessAdminUser(): Setup {
         new HeadlessAdmin();
 
         return $this;
     }
 
     /**
+     * Remove user certain roles
      * @param array $roles
      * @return $this
      */
-    public function removeUserRoles($roles = []) {
+    public function removeUserRoles(array $roles = []): Setup {
         UserRoleManager::removeRoles($roles);
 
         return $this;
     }
 
     /**
+     * Redirect frontend to headless frontend
      * @return $this
      */
-    public function redirectFrontend() {
+    public function redirectFrontend(): Setup {
         new RedirectFrontend();
         return $this;
     }
 
-    public function addMenu($name, $title) {
-        NavMenu::register($name, $title);
-
-        return $this;
-    }
-
     /**
+     * Add a new menu
+     * @param $name
+     * @param $title
      * @return $this
      */
-    public function helloWorld() {
-        echo 'Hello World!';
+    public function addMenu($name, $title): Setup {
+        NavMenu::register($name, $title);
 
         return $this;
     }

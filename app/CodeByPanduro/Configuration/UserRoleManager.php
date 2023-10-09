@@ -1,9 +1,16 @@
 <?php
 namespace CodeByPanduro\Configuration;
 
+/**
+ * A class to manage user roles
+ */
 class UserRoleManager {
-
-    public static function removeRole(string $role) {
+    /**
+     * Remove a role
+     * @param string $role
+     * @return void
+     */
+    public static function removeRole(string $role): void {
         // if role not already exists, bail
         if (!get_role($role)) {
             return;
@@ -12,7 +19,12 @@ class UserRoleManager {
         remove_role($role);
     }
 
-    public static function removeRoles(array $roles = []) {
+    /**
+     * Remove multiple roles
+     * @param array $roles
+     * @return void
+     */
+    public static function removeRoles(array $roles = []): void {
         foreach ($roles as $role) {
             self::removeRole($role);
         }

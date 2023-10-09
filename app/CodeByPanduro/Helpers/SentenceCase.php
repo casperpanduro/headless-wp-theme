@@ -2,12 +2,26 @@
 
 namespace CodeByPanduro\Helpers;
 
+/**
+ * Convert a string to sentence case
+ */
 class SentenceCase {
-    public static function convert($string) {
+
+    /**
+     * A static helper method to convert a string to sentence case
+     * @param string $string
+     * @return string
+     */
+    public static function convert(string $string): string {
         return (new self)->sentenceCase($string);
     }
 
-    public function sentenceCase($input) {
+    /**
+     * Convert a string to sentence case
+     * @param string $input
+     * @return string
+     */
+    public function sentenceCase(string $input): string {
         $sentences = preg_split('/(\.\s+|\?\s+|\!\s+)/', $input, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         $result = '';
@@ -31,7 +45,12 @@ class SentenceCase {
         return $result;
     }
 
-    public function pluralize($word) {
+    /**
+     * Pluralize a word
+     * @param string $word
+     * @return string
+     */
+    public function pluralize(string $word): string {
         // Simple pluralization example - add an 's' to the end of the word
         return $word . 's';
     }
