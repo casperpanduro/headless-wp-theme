@@ -1,12 +1,14 @@
 <?php
 namespace CodeByPanduro\Theme;
 
+use CodeByPanduro\Configuration\AllowSvgUpload;
 use CodeByPanduro\Configuration\CustomUserRole;
 use CodeByPanduro\Configuration\DisableComments;
 use CodeByPanduro\Configuration\DisableThemeFileEditor;
 use CodeByPanduro\Configuration\HeadlessAdmin;
 use CodeByPanduro\Configuration\RedirectFrontend;
 use CodeByPanduro\Configuration\NavMenu;
+use CodeByPanduro\Configuration\UploadLogo;
 use CodeByPanduro\Configuration\UserRoleManager;
 
 /**
@@ -88,6 +90,26 @@ class Setup {
      */
     public function addMenu($name, $title): Setup {
         NavMenu::register($name, $title);
+
+        return $this;
+    }
+
+    /**
+     * Allow svg uploads
+     * @return $this
+     */
+    public function allowSvgUploads(): Setup {
+        AllowSvgUpload::register();
+
+        return $this;
+    }
+
+    /**
+     * Enable logo support
+     * @return $this
+     */
+    public function logoSupport(): Setup {
+        UploadLogo::register();
 
         return $this;
     }

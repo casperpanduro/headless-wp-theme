@@ -8,7 +8,11 @@ use WP_REST_Response;
 /**
  * Register custom rest api endpoints
  */
-class Menu {
+class Menu implements RestApiInterface {
+    /**
+     * Register menu endpoints
+     * @return void
+     */
     public static function register(): void {
         // get menu by slug
         register_rest_route('wp/v2', '/menu/', [
@@ -23,6 +27,11 @@ class Menu {
         ]);
     }
 
+    /**
+     * Get menu locations
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
     public function getLocations(WP_REST_Request $request): WP_REST_Response {
         $locations = get_nav_menu_locations();
         $terms = get_terms('nav_menu', array('hide_empty' => true, 'include' => array_values($locations)));
@@ -30,6 +39,11 @@ class Menu {
         return new WP_REST_Response($this->formatLocations($terms), 200);
     }
 
+    /**
+     * Get menu by slug
+     * @param WP_REST_Request $request
+     * @return WP_REST_Response
+     */
     public function getMenu(WP_REST_Request $request): WP_REST_Response {
         $slug = $request->get_param('slug');
         // get menu id by location
@@ -51,6 +65,11 @@ class Menu {
         }
     }
 
+    /**
+     * Format menu locations to desired format
+     * @param array $items
+     * @return array
+     */
     public function formatLocations(array $items = []): array {
         $formatted = [];
         $locations = get_nav_menu_locations();
@@ -67,6 +86,11 @@ class Menu {
         return $formatted;
     }
 
+    /**
+     * Format menu items to desired format
+     * @param array $items
+     * @return array
+     */
     public function formatItems(array $items = []): array {
         $formatted = [];
         foreach($items as $item) {

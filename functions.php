@@ -10,6 +10,8 @@ add_action('after_setup_theme', function() {
     theme()
         ->headlessSetup()
         ->removeUserRoles(['subscriber', 'contributor', 'author', 'editor'])
+        ->allowSvgUploads()
+        ->logoSupport()
         ->addMenu('main', 'Main Menu');
 });
 
@@ -32,5 +34,6 @@ add_action('init', function() {
  */
 add_action('rest_api_init', function () {
     rest_api()->menu();
+    rest_api()->settings();
 });
 
